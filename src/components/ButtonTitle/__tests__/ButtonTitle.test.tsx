@@ -3,7 +3,7 @@ import userEvent from '@testing-library/user-event';
 
 import ButtonTitle from '../index';
 
-test('should show title', () => {
+test('should show title when click cta', () => {
   render(<ButtonTitle />);
 
   const title = screen.queryByText(/the title/i); // we use queryByText to avoid throwing error if using getByText
