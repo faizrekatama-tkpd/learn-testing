@@ -41,8 +41,6 @@ test('should successfully fetch data and show pokemon colors', async () => {
 })
 
 test('should handle server error', async () => {
-  const consoleErrorSpy = jest.spyOn(console, 'error');
-
   /**
    * Lets re-mock the API to return status 500
    */
@@ -63,6 +61,6 @@ test('should handle server error', async () => {
    * and showing error message
    */
   await waitFor(() => {
-    return expect(consoleErrorSpy).toHaveBeenCalledWith('response is not ok(500): Internal Server Error');
+    return expect(screen.getByText(/error terjadi/i)).toBeInTheDocument();
   });
 })

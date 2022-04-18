@@ -8,13 +8,14 @@ interface PokemonColor {
 export default function PokeList(){
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<PokemonColor[]>([]);
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   useEffect(() => {
     setLoading(true);
 
     fetch('https://pokeapi.co/api/v2/pokemon-color')
       .then((response) => {
-        if(!response.ok) {
+        if(!response.ok) { // status code 200-299
           const message = `response is not ok(${response.status}): ${response.statusText}`
           throw new Error(message);
         }
@@ -24,12 +25,16 @@ export default function PokeList(){
         setData(result.results);
       })
       .catch(err => {
-        console.error(err.message);
+        setErrorMessage(err.message);
       })
       .finally(() => {
         setLoading(false);
       });
   }, []);
+
+  if(errorMessage){
+    return <div>Error Terjadi: {errorMessage}</div>
+  }
 
   if(loading) {
     return <div>Loading....</div>

@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import ButtonTitle from './components/ButtonTitle';
+import PokeList from './components/PokeList';
 
 function App() {
   return (
@@ -11,6 +12,8 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
 
         <ButtonTitle />
+
+        <PokeList />
 
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
