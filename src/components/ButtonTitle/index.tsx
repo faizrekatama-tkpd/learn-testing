@@ -5,7 +5,7 @@ export default function ButtonTitle() {
 
   return (
     <>
-      {showTitle && <h1>The Title</h1>}
+      {showTitle && <h1>The Title Nih Bos</h1>}
       <button onClick={() => setShowTitle(prev => !prev)} data-testid="btnClickMe">toggle show title</button>
     </>
   )
